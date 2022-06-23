@@ -1,0 +1,1924 @@
+Js, Css,  HtMl, Boot-strap
+------------------------------------------------------------------------------------------------------------------------------------------
+CSS =
+------------------------------------------------------------------------------------------------------------------------------------------
+Css stands for cascading style sheets
+CSS describes how html elements are to be displayed on browsers apps and other medias
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS syntax is a rule that consits of a selector and a declaration block
+The selector, eg. h1, h2, p1, p2, points to the HTML element ou want to style
+The declaration block, HTML element wated to be styled, can have 1 or more declrations which are seperated by semi colons
+Each edclaration has a CSS property name and value
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS selectors are used so that you can find an HTML elemt you want style
+There are five cagetories of these selectors:
+	-Simple selectors: selecting elements based on the name, id, or class
+	-Combinator selectors: Selects the element based on a specific relationship
+	-Psuedo-class selectors: selects elements based on a certain state
+	-Pseudo-elements selectors: Select and style a part of an HTML element
+	-Attribute-selectors: Selecting an element based on an attribute or attribute value
+
+CSS Elements selector:
+The element selector selects the HTML elements based on the name
+
+p {
+  text-align: center;
+  color: red;
+}
+
+CSS id Selector:
+Id selector uses the id attribute of an HTML element to select a specific element
+The id of the element is uniuqe within the page, so the id selector is used to select one uniuqe element
+To select an element with a specific id, write a hash(#) character, followed by the id
+
+#para1 {
+  text-align: center;
+  color: red;
+}
+
+CSS class selector:
+The class slector selects the HTML element with in a specific class attribure
+To select an element with a specific class, you need to use a period (.), followed by the class name.
+
+.center {
+  text-align: center;
+  color: red;
+}
+
+You can also specify the specifc HTML elements which should be affected by the class
+
+p.center {
+  text-align: center;
+  color: red;
+}
+
+CSS Universal Selector:
+The universal selector(*) selects every HTML element on the page
+
+* {
+  text-align: center;
+  color: blue;
+}
+
+CSS Grouping Selector:
+The grouping selector selects all HTML elements with the same style definition
+
+h1 {
+  text-align: center;
+  color: red;
+}
+
+h2 {
+  text-align: center;
+  color: red;
+}
+
+p {
+  text-align: center;
+  color: red;
+}
+
+It is better to group the selectors, to minimize the needed code
+To group the selectors, seperate each selector with a commma
+
+h1, h2, p {
+  text-align: center;
+  color: red;
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+When a web browser is reading a style sheet, it will format the HTML document according to the info it has in the style sheet
+There are 3 ways to insert a style sheet:
+
+	-External CSS
+	-Internal CSS
+	-Inline CSS
+
+External CSS:
+An externall style sheet allows it, so that you are able to change the look of an entire website just by changing one file
+Each HTML page must include a referance to the external stye sheet file inside the <link> element, inside the head section
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+An External style sheet can be written in any text editor, but it must be saved with a .css extension
+The External .css file should not contain any HTML tags
+It should be like this:
+
+File name: Styling.css
+Content: 
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+Internal CSS:
+Internal style sheet is sued when there is one single HTML page which has a uniuqe style
+The Internal style is defined with the <style> element inside the head section
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+Inline CSS:
+An inline style must be used to apply a uniuqe style for a single element
+To use the inline style, you need to ass the style attribute to the relevant element.
+The style attribute can contain any CSS property
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+
+</body>
+</html>
+
+Multiple style sheets:
+If a property has already been defined for the same element in diffrent style sheets, the value of the lement last read will be used
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<style>
+h1 {
+  color: orange;
+}
+</style>
+</head>
+
+^External is firt which is then followed by internal, therefore the internal value will be used
+
+<head>
+<style>
+h1 {
+  color: orange;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+^Internal is first which is then followed by external, therefore external is used to assign the value to the element
+
+Cascading Order:
+WHat style can be used if there is more then one style that is specified for an HTML element?
+Styles in a page will "cascade" into a new virtual style sheet which follow the rules, where no.1 has the highest priority:
+	-Inline style(inside an HTML element)
+	-External and INternal style sheets (in the head section)
+	-Browser default
+
+Inline has highest priority, it will override external and internal styles and browser defaults
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Commenting:
+CSS commments are used to explain the code in CSS, just like any program language,
+CSS comments are ignored by webs and browsers
+A CSS comment is placed within the <style> element and starts with /* in which ends with */
+
+/* This is a single-line comment */
+p {
+  color: red;
+}
+
+You can add it wherever you want, as long as you follow the rules
+
+p {
+  color: red;  /* Set text color to red */
+}
+
+Comments can also span multiple lines
+
+/* This is
+a multi-line
+comment */
+
+p {
+  color: red;
+}
+
+You are able to use HTML comments within CSS comments by using the following code <!--(text)-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+  color: red; /* Set text color to red */
+}
+</style>
+</head>
+<body>
+
+<h2>My Heading</h2>
+
+<!-- These paragraphs will be red -->
+<p>Hello World!</p>
+<p>This paragraph is styled with CSS.</p>
+<p>CSS comments are not shown in the output.</p>
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS colors are specified using predefined color names, RGB, HEX, HSL, RGBA, HSLA values
+In CSS, a color can be specified by using a predefined color name:
+Tomato, Orange, DodgerBlue, MediumSeaGreen, Gray, SLateBlue, Violet, LightGray, and 140 more
+
+You are also able to set BG colors for HTML elements
+
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+
+CSS text color:
+
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+
+You are also able to set CSS corder color:
+
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+
+CSS color values can be set so that you have a custom color you want to use that may be transparent
+
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS RGB Values:
+In CSS a color can be specified as an R,G,B Value, using this formula
+Each parameter (red,blue,green) repersent the intensity of the color which can range between 0-255
+
+CSS RGBA values:
+RGBA color values are an extension of the RGB color values with an Alpha channel (a) - Which specifies the opacity of the color
+the alpha parameter is a number between 0.0 and 1.0
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS HEX colors:
+A hexadecimal color is specified with #RRGGBB, where the RR(red), GG(green), BB(blue) hexadecimal integers specify the components of the color
+hexadecimals are values between 00 and ff, just like the decimals 0-255
+
+3 digit HEX Value:
+The 3-digit hex value is a shorter form of the 6-digit HEX value
+The 3 digit HEx value has the following form: #rgb
+All parameters have values between 0 and f
+It can only be used if each parameter are the same just like this:
+#ff00cc which can be refined to be turned into a 3 digit HEX value #f0c
+
+body {
+  background-color: #fc9; /* same as #ffcc99 */
+}
+
+h1 {
+  color: #f0f; /* same as #ff00ff */
+}
+
+p {
+  color: #b58; /* same as #bb5588 */
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+HSL value:
+In CSS, a color can be specified using hue, saturation, and lightness (HSl) in the form:
+HSL(hue, saturantion, lightness)
+Hue is the degree on the color wheel from 0-360, 0 is red 120 is green and 240 is blue
+Saturation is a percentage value, 0% means a shade of gray and 100% is the full color
+Lightness is also a percentage, 0% is black, 20% is neither light or dark, 100% is white
+
+HSLA value:
+HSLA is the same as HSL except A stands for alpha, the transparency of the color.
+The value of alpha can be between 0-1
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS backgrounds:
+The CSS background properties are used to add background effects for elements
+CSS background-color property specifiesthe background color of an element
+
+body {
+  background-color: lightblue;
+}
+
+With css you can change the color value with CSS color values
+
+
+Other Elements: 
+You can set the background color for any HTML element:
+
+h1 {
+  background-color: green;
+}
+
+div {
+  background-color: lightblue;
+}
+
+p {
+  background-color: yellow;
+}
+
+opacity and transparency can be added the saem way:
+div {
+  background-color: green;
+  opacity: 0.3;
+}
+
+div {
+  background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS background-image
+background-image property specifies an image to use as the background element
+
+body {
+  background-image: url("paper.gif");
+}
+
+the background image can also be set for elements, like h or p element
+
+p {
+  background-image: url("paper.gif");
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS background image and repeat:
+CSS background-repeat:
+background-image prperty repeats an image both horizontally and vertically by default, it may look strange
+
+body {
+  background-image: url("gradient_bg.png");
+}
+
+If the image is repeated only horizontally background-repeat: repeat-x; the background will only be repeated by the x plane and not the y plane
+
+body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+
+CSS background-repeat: no-repeat:
+Showing the background image only once can be specified vy the background-repeat property:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+}
+
+^shows the bg image once on the text
+
+CSS background-position:
+background-position is used to specify the position of the background image
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS background-attachment:
+background-attachment specifies if the image can be scrolled or is fixed to a certain location
+
+Fixed:
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+Scrolling with the rest of the page:
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: scroll;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS background shorthand property:
+To shorten code you can specify the background properties in one single property, this is called a shorthand property
+If you write something like this:
+
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+You can turn it into something like this instead:
+
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+
+WHen using a shorthand property the order must go as following:
+	-background-color
+	-background-image
+	-background-repeat
+	-background-attachment
+	-background-position
+
+It does not matter if one of the properties does not have a value, as long as the other properties are in order
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS borders:
+Css border properties allor you to specify the style, width, and color of the lements border
+CSS border style:
+	-dotted = makes a dotted border
+	-dashed = makes a dashed border
+	-solid = makes a solid border
+	-double = makes a double border
+	-groove = makes a 3d grooved border, the effect depends on the border-color value
+	-ridge = makes a 3d ridged border, effect depends on border color value
+	-inset = makes a 3d inset border, effect depends on border color value
+	-outset = makes a 3d outset border, effect depends on border color value
+	-none = does not make a border
+	-hidden = makes a hidden border
+
+	The border style can have 4 values:
+		-the top
+		-the bottom
+		-the left
+		-the right
+
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS border width:
+border-width specifies the width of each of the four borders
+the width can be set to a specific sixe:
+	-in
+	-px
+	-put
+	-cm 
+	-em 
+	-etc 
+	or by using
+	-thin 
+	-medium 
+	-thick 
+
+p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+}
+
+border-wdith property can detrmine the width value of the top and bottom and the sides
+
+p.one {
+  border-style: solid;
+  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+}
+
+p.two {
+  border-style: solid;
+  border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+}
+
+p.three {
+  border-style: solid;
+  border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS border color:
+border-color property is set by the color of the four borders
+the border-color can be set by using:
+	-name 
+	-HEX 
+	-RGB 
+	-HSL 
+	-transparent
+If the border color is not set then it inherits/takes the color of the element
+
+p.one {
+  border-style: solid;
+  border-color: red;
+}
+
+p.two {
+  border-style: solid;
+  border-color: green;
+}
+
+p.three {
+  border-style: dotted;
+  border-color: blue;
+}
+
+border-color property can have 1-4 values for each sides
+
+p.one {
+  border-style: solid;
+  border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
+}
+
+you can also use HEx values for border-color 
+
+p.one {
+  border-style: solid;
+  border-color: #ff0000; /* red */
+}
+
+even RGB values
+
+p.one {
+  border-style: solid;
+  border-color: rgb(255, 0, 0); /* red */
+}
+
+HSL value is also a choice:
+
+p.one {
+  border-style: solid;
+  border-color: hsl(0, 100%, 50%); /* red */
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS border sizes:
+CSS border - indivisual sizes
+you are able to specify the certain side you want to change the properties/values for
+
+p {
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+}
+
+^ top = dotted, right = solid, bottom = dotted, left = solid
+
+p {
+  border-style: dotted solid double dashed;
+}
+
+^ top = dotted, right = solid, bottom = dotted, left = solid
+
+/* Three values */
+p {
+  border-style: dotted solid double;
+}
+
+^ top = dotted, right and left = solid, bottom = double 
+
+/* Two values */
+p {
+  border-style: dotted solid;
+}
+
+^ top and bottom = dotted, left and right = solid
+
+/* One value */
+p {
+  border-style: dotted;
+}
+
+^All borders are dotted
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS shorthand border property:
+border property is a shortened property of the following border properties:
+	- border-width
+	- border-style (required)
+	- border-color 
+
+p {
+  border: 5px solid red;
+}
+
+You can also specify the specifc border side you want to change the properties for
+
+p {
+  border-left: 6px solid red;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS rounded borders:
+CSS border-radius property is used so that you can add ruonded borders to an element
+
+p {
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CCS margins:
+CSS margins are used so that you can create space around elements, outside of any defined border
+margin property is used to create space around an element.
+You can make indivisual sides have margins:
+	- margin-top
+	- margin-right 
+	- margin-bottom 
+	- margin-left 
+
+	All margin properties have the following rules:
+	- Auto = browser calculates the margin
+	- length = specifies the margin in px, pt, cm, etc
+	- % = specifies a margin in % of the width of the containing element
+	- inherit = specifies that the margin should be inherited from the parent element
+	Negative values are allowed
+
+p {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+
+Margin - Shorthand property:
+It is used to shorten code, it is possible to specify all the margin properties in one property
+The margin property is a shorthand property for all following properties:
+	- margin-top
+	- margin-right 
+	- margin-bottom 
+	- margin-left 
+
+	If the margin property has 4 values:
+	p {
+	  margin: 25px 50px 75px 100px;
+	}
+
+	^ top is 25px, right is 50px, bottom is 75px, left is 100px
+
+	If the margin property has 3 values:
+	p {
+	margin: 25px 50px 75px;
+	}
+
+	^ top is 25px, right and left is 50px, bottom is 75px
+
+	If the margin property has 2 values:
+
+	p {
+	margin: 25px 50px;
+	}
+
+	^ top and bottom is 25px, right and left is 50px
+
+	If the margin property has only 1 value:
+	p {
+  	margin: 25px;
+	}
+
+The auto value:
+	You can set the margin property to auto so that it horizontally center the element within its container
+	The element will then take up the specified width, and the remaining space will be split equallt between the left and right margins
+
+	div {
+	width: 300px;
+	margin: auto;
+	border: 1px solid red;
+	}
+
+Inherit value:
+The example below makes it so that the left margin of the (<p class="ex1">) element will be inherited from the parent element (<div>):
+	div {
+	border: 1px solid red;
+	margin-left: 100px;
+	}
+
+	p.ex1 {
+	margin-left: inherit;
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS margin collapse:
+The top and bottom margins of elements are sometimes collapsed into a sinle margin that is equal to the largest of the 2 margins.
+Margin collapsing can not happen to the left and right margin properties, it can only happen to the top and bottom margin properties:
+
+	h1 {
+	margin: 0 0 50px 0;
+	}
+
+	h2 {
+	margin: 20px 0 0 0;
+	}
+
+	Above it is described that the h1 element has a 50px bottom margin while the h2 element has a top margin of 20px, therefore it should be 70px margin, but due to margin collapsing it i sonly 50px
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS padding:
+padding is used to create space around an elements content, inside of any defined border.
+CSS padding is used to generate space around an elements content, inside of any defined border.
+With css, you have full control over the padding, there are properties for setting the padding on each side of the element
+
+Padding - indivisual sides:
+CSS has properties for specifying the padding on each side of an element:
+	- padding-top
+	- padding-right 
+	- padding-bottom 
+	- padding-left 
+
+	All padding properties have the following values:
+	- length = specifies a padding in px, pt, cm, etc
+	- % = specifies a padding in % of the wdith of the containing element
+	- inherit = specifies that the padding should be inherited by the parent element
+	Negative values are not allowed
+
+	div {
+	padding-top: 50px;
+	padding-right: 30px;
+	padding-bottom: 50px;
+	padding-left: 80px;
+	}
+
+Padding shorthand property:
+To shorten the code you can specify all padding properties into one property
+The padding property is a shorthand property for the following padding properties:
+	- padding-top 
+	- padding-right 
+	- padding-bottom 
+	- padding-left 
+
+	If the padding has 4 values then it goes: top, right, bottom, left: 
+	div {
+	padding: 25px 50px 75px 100px;
+	}
+
+	If the padding has 3 values then it goes: top, right and left, bottom:
+	div {
+	padding: 25px 50px 75px;
+	}
+
+	If the property has 2 values then it goes: top and bottom, left and right:
+	div {
+	padding: 25px 50px;
+	}
+
+	If the padding property has 1 value then that value is for all properties:
+	div {
+	padding: 25px;
+	}
+
+Padding and Element width:
+The css width property specifies the width of the elements content area
+CSS content area is the portion inside the padding, border, and margin of an element
+If an element has specific width, the padding added to that element will added to the total width. This is often not what devs want
+	div {
+	width: 300px;
+	padding: 25px;
+	}
+	^ The width should be 300px, but the padding has a width of 25px on both left and right therefore making it that the width of the element turns out to be 350px
+
+The box sizing property makes it so that the element actually maintains its width
+If the padding is increased then the content space will decrease, but the width of the element will stay the same
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS height, width, and max-width:
+The CSS height and width properties are used to set the height and width of the element
+CSS property max-width is used to set the maximum width of an element
+The height and width do not unclude padding, borders, and margins. 
+The height and width property set the height/width of an area inside the padding, border, and margin of the element
+
+CSS height and width values:
+	- auto = it is default, the browser calculates the height and width itself
+	- length = it defines the height/width in px, cm, pt, etc.
+	- % = defines the height/width in percent of the block
+	- inital = sets the height/width to the default value
+	- inherit = makes it so that the height/wdith value will be inherited from the parent
+
+Setting max-width:
+The max-width property is used to set the maximum width of the element
+The max-width property can be specified in length values:
+	-	px
+	-	cm 
+	-	etc.
+	-	%
+	-	set to none (default, no maximum width)
+
+	The problem with the width property is when the browser is readjusted to a size less then the width property value, the element will try to find a way to counter that problem
+	max-width will help the problem as the readjusted with of the element will go according to the size of the web browser
+	If you use the width and max-width property on the same element and the width property is larger then the max-width properties, the max-width property will be used
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Box Model:
+In CSS box model is used when talking about design and layout
+CSS box model is essentialy a box that wraps around every HTML element. It has margins, paddings, and actual content.
+	-Margin, clears an area outside the border
+	-Border, A border that goes around the padding and content
+	-Padding, Clears an area around the content
+	-Content, The content where text and images appear 
+	
+	The box model allows us to add a border around elements, and to define space between elements
+
+Width and Height of an element:
+In order to set the width and height of an element correctly in all browsers you need to know how the box model works
+When you set the width and height properties of an element in CSS, you just set the width and height of the content area. To calculate the full size of ana element, you must also add padding, border, and margins
+
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+Total wdith of 350:
+	320px (width)
+	+ 20px (left + right padding)
+	+ 10px (left and right border)
+	+ 0px (left and right margin)
+	=350px total width
+
+	Total element width should be calculated like this:
+	Width + Left padding + Right padding + left border + right border + left margin + right margin
+
+	Total height of an element should be calculated like this:
+	Height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Outline:
+An outline is a line drawn around the elements, OUTSIDE the borders, to make the element "stand out"
+CSS has the following properties:
+	- outline-style 
+	- outline-color 
+	- outline-width 
+	- outline-offset 
+	- outline
+
+	Outline is not the same as borders, unlike borders, the outline is drawn outside the elements border, and may have other content
+	The outline is NOT part of the elemnts dimensions, the elements total width and height is not affected by the width of the outline
+
+CSS Outline Style:
+The outline-style property specifies the style of the outline, and can have one of the following values:
+	- dotted = Defines a dotted outline
+	- solid = Defines a solid outline
+	- dashed = Defines a dashed outline
+	- double = Defines a double outline
+	- groove = Defines a 3D grooved outline 
+	- ridge = Defines a 3D ridged outline
+	- inset = Defines a 3D inset outline
+	- outset = Defines a 3D outset outline
+	- none = Defines no outline
+	- hidden = Define s ahidden outline
+
+					=
+
+	p.dotted {outline-style: dotted;}
+	p.dashed {outline-style: dashed;}
+	p.solid {outline-style: solid;}
+	p.double {outline-style: double;}
+	p.groove {outline-style: groove;}
+	p.ridge {outline-style: ridge;}
+	p.inset {outline-style: inset;}
+	p.outset {outline-style: outset;}
+
+	NONE of the other outline properties will have affect unless the outline-style property is set first
+
+	p.ex1 {
+	border: 1px solid black;
+	outline-style: solid;
+	outline-color: red;
+	outline-width: thin;
+	}
+
+	p.ex2 {
+	border: 1px solid black;
+	outline-style: solid;
+	outline-color: red;
+	outline-width: medium;
+	}
+
+	p.ex3 {
+	border: 1px solid black;
+	outline-style: solid;
+	outline-color: red;
+	outline-width: thick;
+	}
+
+	p.ex4 {
+	border: 1px solid black;
+	outline-style: solid;
+	outline-color: red;
+	outline-width: 4px;
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Outline color: 
+The outline-color property is used to set the color of the outline
+The color can be set by:
+	- Name = specify a color name for it to be used eg. red
+	- HEX = Specify a HEX color value
+	- RGB = Specify a RGB color value
+	- HSL = Specofy a HSL color value
+	- Invert = Performs a color inversion (Ensuring that the outline is visible, regardless of the backgroud color)
+
+	p.ex1 {
+	border: 2px solid black;
+	outline-style: solid;
+	outline-color: red;
+	}
+
+	p.ex2 {
+	border: 2px solid black;
+	outline-style: dotted;
+	outline-color: blue;
+	}
+
+	p.ex3 {
+	border: 2px solid black;
+	outline-style: outset;
+	outline-color: grey;
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS OUtline - Shorthand property;
+the outline property is a shorthand property for all following indivisual outline properties:
+	- outline-width 
+	- outline-style (required)
+	- outline-color
+
+	The outline property is specified as one, two, or three values from the list above. Oder does not matter
+	
+	p.ex1 {outline: dashed;}
+	p.ex2 {outline: dotted red;}
+	p.ex3 {outline: 5px solid yellow;}
+	p.ex4 {outline: thick ridge pink;}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Outline offset:
+The outline-offset property adds a space between an outline and edge of a border of an element
+The space between an elment and its outline is transparent
+
+p {
+  margin: 30px;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+
+The next examples shows that the space between an element and its outline is transparent
+
+p {
+  margin: 30px;
+  background: yellow;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Outline Width:
+The outline-wdith property specifies the width of the outline, and can have one of the following values:
+	- thin (typically 1px)
+	- medium (typically 3px)
+	- thick (typically 5px)
+	- A specific size (in, px, pt, cm, em, etc.)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text:
+CSS has a lot of properties for formatting text:
+	- Text color: 
+		The color property is used to set the color of the text, the color can be specified by any CSS color value
+	- Backgroud Color:
+		The Background color creates a background for the text and makes turns the color of the vackground behind the text to that specified color
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text Alignment:
+CSS text alignment and text direction:
+	- text-align
+	- text-align-last 
+	- direction 
+	- unicode-bidi 
+	- vertical-align 
+
+text-align:
+The text-align property is used to set the horizontl alignment of a text
+The text can be left, right, centered, or justified
+
+	h1 {
+	text-align: center;
+	}
+
+	h2 {
+	text-align: left;
+	}
+
+	h3 {
+	text-align: right;
+	}
+
+When text-align value is justify, each line i stretcehed and every line has an equal width, the left and right margins are straight
+
+	div {
+	text-align: justify;
+	}
+
+text-align-last:
+The text-align-last is a property that specifies how to align the last line of a text
+
+	p.a {
+	text-align-last: right;
+	}
+
+	p.b {
+	text-align-last: center;
+	}
+
+	p.c {
+	text-align-last: justify;
+	}
+
+Text direction:
+The direction property and unicode-bidi property is used to change the text direction of an element
+
+	p {
+	direction: rtl;
+	unicode-bidi: bidi-override;
+	}
+
+vertical-align:
+The vertical-align property sets the vertical alignment of the element
+
+	img.a {
+	vertical-align: baseline;
+	}
+
+	img.b {
+	vertical-align: text-top;
+	}
+
+	img.c {
+	vertical-align: text-bottom;
+	}
+
+	img.d {
+	vertical-align: sub;
+	}
+
+	img.e {
+	vertical-align: super;
+	}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text Decoration:
+	- text-decoration-line
+	- text-decoration-color 
+	- text-decoration-style 
+	- text-decoration-thickness
+	- text-decoration
+
+
+Adding a decoration line to text:
+The text-decoration-line property is used to add a decoraion to the text
+The values of these text-decoration-line properties include:
+
+h1 {
+  text-decoration-line: overline;
+}
+
+h2 {
+  text-decoration-line: line-through;
+}
+
+h3 {
+  text-decoration-line: underline;
+}
+
+p {
+  text-decoration-line: overline underline;
+}
+
+Color specification for decration lines:
+The text-decoration-color property is used to set the color of the decoration made for the text:
+Values for these colors vary depending on the se of color:
+
+h1 {
+  text-decoration-line: overline;
+  text-decoration-color: red;
+}
+
+h2 {
+  text-decoration-line: line-through;
+  text-decoration-color: blue;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-color: green;
+}
+
+p {
+  text-decoration-line: overline underline;
+  text-decoration-color: purple;
+}
+
+Style specification for decoration text:
+The text-decoration-style property is used to set the style of said decoration text:
+Values are the same as any style property:
+
+h1 {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+h2 {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+p.ex1 {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+
+p.ex2 {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+p.ex3 {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
+}
+
+Thickness specifying for decoration texts:
+The text-decoration-thickness property is used to set the thickness of the said decoration text:
+Values of these thickness properties are just like any thickness property:
+
+h1 {
+  text-decoration-line: underline;
+  text-decoration-thickness: auto;
+}
+
+h2 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 5px;
+}
+
+h3 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 25%;
+}
+
+p {
+  text-decoration-line: underline;
+  text-decoration-color: red;
+  text-decoration-style: double;
+  text-decoration-thickness: 5px;
+}
+
+Shorthand property:
+Just like any main property there is always a shorthand property to simplify the lesser properties:
+	- text-decoration-line (required)
+	- text-decoration-color (optional)
+	- text-decoration-style (optional)
+	- text-decoration-thickness (optional)
+
+	Examples:
+
+h1 {
+  text-decoration: underline;
+}
+
+h2 {
+  text-decoration: underline red;
+}
+
+h3 {
+  text-decoration: underline red double;
+}
+
+p {
+  text-decoration: underline red double 5px;
+}
+
+Links:
+All links in HTML are underlines by default so using:
+
+a {
+  text-decoration: none;
+}
+
+Removes said underline
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text Transformation:
+The text-transform property is used to specify uppercase and lowercase letters in text
+The property can be used to turn everything into uppercase or lowercase letters, or to capatilize the first letter of each word
+Examples for values that can be said in these properties:
+
+p.uppercase {
+  text-transform: uppercase;
+}
+
+p.lowercase {
+  text-transform: lowercase;
+}
+
+p.capitalize {
+  text-transform: capitalize;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text Spacing:
+CSS text indentation:
+The text-indent property is used to specify the indentation of the first line of a text:
+
+p {
+  text-indent: 50px;
+}
+
+*Just like tabbing to make space before the sentence
+
+Letter Spacing: 
+The letter-spacing property is used to specify the space between the characters in a text
+Examples for values that are allowed for the property:
+
+h1 {
+  letter-spacing: 5px;
+}
+
+h2 {
+  letter-spacing: -2px;
+}
+
+Line height:
+The line-height property is used to specify the space between the lines
+Examples for values that are allowed are as followed:
+
+p.small {
+  line-height: 0.8;
+}
+
+p.big {
+  line-height: 1.8;
+}
+
+Word Spacing:
+The word-spacing property is used to specify the space between words
+*Not to be confused with letter spacing where its the spacing between the letters
+Examples for values that are allowed are as followed:
+
+p.one {
+  word-spacing: 10px;
+}
+
+p.two {
+  word-spacing: -2px;
+}
+
+White Space:
+The white-space property specifies how white space inside an element should be handled
+The example that will be hown demonstarates how to disable text wrapping inside an element:
+
+p {
+  white-space: nowrap;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Text shadow:
+Text Shadow:
+The text-shadow property adds shadow to text
+The Example that will be shown, shows that you are able to create shadow effects in values in order like this (x,y)
+
+h1 {
+  text-shadow: 2px 2px;
+}
+
+You are able to add color by adding another value to the property, which is the color:
+
+h1 {
+  text-shadow: 2px 2px red;
+}
+
+You are also able to add a blur to the Text shadow:
+
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Fonts:
+Font families:
+There are 5 generic font families:
+	-Serif
+	-Sans-Serif
+	-Monoscope
+	-Cursive
+	-Fantasy
+	
+CSS font-family property:
+In CSS we use the font-family property to specify the font of the text
+------------------------------------------------------------------------------------------------------------------------------------------
+React = 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+React is a JS libary for building user interfaces
+React is used to build single-page applications
+React allows us to creates resable UI components
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Js = 
+------------------------------------------------------------------------------------------------------------------------------------------
+getElementById : Finds the element id and uses it to do actions
+Single Quotes or Double Quotes are fine when assigning a string value
+src : Takes the tmage (<img>)
+style : You can change Html styles such as colors and so forth
+style.display = "none"; : You can choose to hide the html style
+function : Creates a function (custom code) that does what is said inside inside the function block while only needing to type the function name
+Blocking :
+<h1>, <h2>, <h3>, <h4> : Headers in diffrent sizes
+Displaying :
+innerHtml : Writing something inside a HTML element, defining something in the html element
+document.write() : Writing into an HTML element output
+window.alert() : Writing into an alertbox
+console.log() : Writing into the websites console log
+
+
+
+innerHtml :
+<!DOCTYPE html> //Document type is HTML
+<html> //Start of the HTML document
+<body> //content of HTML
+
+<h1>My First Web Page</h1> //Header named Firt Web Page
+<p>My First Paragraph</p> // Paragraph outputing My First Paragraph
+
+<p id="demo"></p> //Paragraph is assigned with an id named demo
+
+<script> //JavaScript useage
+document.getElementById("demo").innerHTML = 5 + 6; //Get the documents Elemnt id called demo, inserting 5+6 into the HTML code
+</script>
+
+</body> //End of body
+</html> //End of HTML code document
+
+
+
+document.write() : 
+<!DOCTYPE html> //Document Type is HTML
+<html> //Start of HTML document code
+<body> //Body of HTML code
+
+<h1>My First Web Page</h1> //Header inputted with the word of My first web page
+<p>My first paragraph.</p> //Paragraph useage with input of My first paragraph
+
+<script> //Useage of Javascript
+document.write(5 + 6); //Write on the document 5+6
+</script> 
+
+</body> //End of HTML body
+</html> //End of HTML document code
+
+
+
+<!DOCTYPE html> //Document type is HTML
+<html> //Start of HTML document code
+<body> //Start of HTML body
+
+<h2>My First Web Page</h2> //Header size 2 inputted with the name My First Web Page
+<p>My first paragraph.</p> //Paragraph inputted with the name My first paragraph
+
+<button type="button" onclick="document.write(5 + 6)">Try it</button> //Button is created and is recognized as a button, 
+										on button click a new page appears and wwrites the answer to 5+6
+
+</body> //End of HTML body
+</html> ?End of HTML document code
+
+
+
+window.alert() :
+<!DOCTYPE html> //Document type is in HTML
+<html> //Start of HTML document code
+<body> //Start of HTML Body
+
+<h1>My First Web Page</h1> //Header size 1 (max) named My First Page
+<p>My first paragraph.</p> //Paragraph name My first paragraph
+
+<script> //Useage of javascript
+window.alert(5 + 6); //A window alert box with the sum to 5+6 appears on the web
+</script>
+
+</body> //End of HTML body code
+</html> //End of HTML document code
+
+
+
+<!DOCTYPE html> //Document type is in HTML
+<html> //Start of HTML document code
+<body> //Start of HTML Body
+
+<h1>My First Web Page</h1> //Header size 1 (max) named My First Page
+<p>My first paragraph.</p> //Paragraph name My first paragraph
+
+<script> //Useage of javascript
+alert(5 + 6); //A window alert box with the sum to 5+6 appears on the web, the useage of window. is not needed because the web recognizes
+			this code as an alert box that should appear on the web as an alert box
+</script>
+
+</body> //End of HTML body code
+</html> //End of HTML document code
+
+
+
+console.log() :
+<!DOCTYPE html> //Document type is set to HTML
+<html> //Start of HTML document code
+<body> //Start of HTML body code
+
+<script> //Useage of Javascript
+console.log(5 + 6); //Outputting the sum of 5+6 to the console
+</script>
+
+</body> //End of HTML body code
+</html> //End of HTML  document code
+
+
+
+window.print() :
+<html> //Start of HTML document code
+<body> //Start of HTML body code
+
+<button onclick="window.print()">Print this page</button> //ON button click the string window print initiazes the computer to load a print screen
+								with the page as the printable page. The input of button title is Print this page
+
+</body> //End of HTML body code
+</html> //End of HTML  document code
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Javascript program is a list of orders for the computer/web to do, these orders are called statements.
+Javascript program is a list of programming statements
+Javascript statements are consisted of Values, Operators, Expressions, Keywords, and Comments
+Semicolons seperate Javascript statements
+Multiple Javascript statements on one line is allowed but may look very compact and weird to understand
+Javascript White space is a function in js multiple are nothing to js, js doesnt read the spaces, easier to read when reviweing code
+Breaking code onto diffrent lines is a good way to read, a good place to break code is when the code is after an operator 
+JS codeblocks are statements grouped together by the curly brackets ({}) in which are grouped to make a function
+JS Statements :
+var : Decalares a variable in the code
+let : Declares a block variable
+const : Declares a block constant
+if : A statement executed on a certain condition
+switch : Statement blocks marked to be executed in diffrent conditions
+for : A block marked to be executed in a loop
+function : Declares a function
+return : Exits the function
+try : Takes the error handling to a block of statements/function
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS syntax are values, Fixed and Variable/Dynamic
+Fixed values are called Literals
+Variable/Dynamic values are called Variables
+Rules:
+
+Literals:
+- Numbers that are written as a whole or with a decimal, can not be a fraction
+- String, text written in between "" or '' both are accepted by JS
+
+JS math operators include all basic math operators (+,-,*,/) (=) can noe be designated as a math operator due to it being a JS Assignment operator (assigning)
+JS Expressions are combinations of Values, Variables, and Operators, they compute into a value/FInal end product
+In JS you can use :
+"John" + " " + "Doe" to Output the word John Doe
+
+let tells the web to create variables, var also does the same thing
+JS comments are as followed (//, /*, */,) These comment keys are what amkes you able to comment and read what you are doing without worrying about the web reading the code and misunderstanding it
+Identifiers are JS Names, they are used to name variables, keywords, and functions
+A JS name must begin with :
+- A letter
+- A dollar sign
+- An underscore
+Characters after the starting leter can be letters, digits, underscores, or dollar signs
+All js identifiers are case sensitive, therefore (iamdead) and (iAmDead) are 2 diffrent variables
+ways to create a an identifier is as follow :
+
+Hyphens : i-am-dead
+Underscores : i_am_dead
+Upper Camel Case : IAmDead
+Lower Camel Case : iAmDead
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS comments are lines of comments that are skipped by the web/computer so that the dev is able to review the code easier
+JS comments can be used in many ways:
+
+//:
+
+// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+
+// Change paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";
+
+
+
+/*
+The code below will change
+the heading with id = "myH"
+and the paragraph with id = "myP"
+in my web page:
+*/
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+
+
+
+You can use JS comments to prevent an execution on a line of code to test how imporant it is and how you can change it for the better without deleting it
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+There are a total of 4 ways to decalare a JS variable :
+
+- var
+- let
+- const
+- Absolutley nothing
+
+JS variables are variables that storing data values
+When to use ? :
+	- Use var for older webs as they most likely dont take in const and let
+	- Use const if the value will not change
+	- Use let when you think the value will change 
+
+All JS identifiers must be named with uniuqe identifiers so that they do not clash together and mix creating a bug
+When assining a variable to a value you must use (=) to assign the value to the variable 
+Using JS data types are as following, when wanting to make a text string use ("", ''), when wanting to put in a number you dont need to use the quotes
+When declaring a JS variable you need to assign a value to the variable or seld the variable will be defined as an undefined variable
+You are able to declare many variables in a statement with a comma :
+
+let person = "John Doe", carName = "Volvo", price = 200;
+
+			or
+let person = "John Doe",
+carName = "Volvo",
+price = 200;
+
+for easy readability
+
+When a value is undefined it means that it has alreay been calculated or that it will be assigned later (user input)
+When you have a declared variable and then reassign it to an undefined variable, the web will take the undefined value and not use it, rather it still uses the old value and assign it to the variable instead
+In JS if you try to use math and out a number in quotes, the following numbers after it will be treated as string, not before it though
+You can use $ as a letter in an identifier as JS treats it that way, you can also you $ for selecting elemnts in HTML
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+19:10:08, Monday June 13, 2022 : I will learn the things that I can not understand and pass on the thing that I have learned
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Let can not be redeclared :
+
+let x = "John Doe";
+
+let x = 0;
+
+// SyntaxError: 'x' has already been declared
+
+You can do this with var though
+
+Let and const provide block scope, var does not have block scope
+Variables inside {} when using let and const can not be accessed from outside the block
+Redeclaring a variable with var makes it so that outside the block the variable will be redclared accordingly
+Using let stops the issue that var has 
+Redeclaring a variable in the same block is not allowed, but redeclaring a variable in another block is allowed
+Variable defined by var can be hoisted to the top of the code and can be executed at any given time, you can use the variable at any time, let does not allow this
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Const variable cannot be reassigned
+When the cost variable is being declared they must be assigned a value
+It is best to use const when declaring a value that you know will not change
+Const rules :
+
+You can not :
+	- Reassign a constant value
+	- Reassign a constant array
+	- Reassign a constant object
+
+You can although: 
+	- Change the elements inside the constant array
+	- Change the properties of the constant object
+
+			Example:
+
+You can :
+// You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+
+// You can change an element:
+cars[0] = "Toyota";
+
+// You can add an element:
+cars.push("Audi");
+
+You can not : 
+const cars = ["Saab", "Volvo", "BMW"];
+
+cars = ["Toyota", "Volvo", "Audi"];    // ERROR
+
+
+
+For constant object you can add and change the properties:
+
+You can:
+// You can create a const object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color = "red";
+
+// You can add a property:
+car.owner = "Johnson";
+
+
+
+You can not: 
+// You can create a const object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color = "red";
+
+// You can add a property:
+car.owner = "Johnson";
+
+
+
+Block Scope :
+ const x = 10;
+// Here x is 10
+
+{
+const x = 2;
+// Here x is 2
+}
+
+// Here x is 10
+
+
+Can not redeclare a var or let to const
+
+var = Creates a variable that exits in and out the block, whole document
+const = Is assigned a first value which will exist in the block scope and outsude of it, but when a new block scope reassigns the const it becomes the new reassigned value in that block only
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+In JS there are many operators and characters that dont do the same thing but seem the same.
+Just like the following :
+
+Arithmetic Operator:
+	+ : Add
+	- : Subtract
+	* : Multiply
+	** : Exponent
+	/ : Divide
+	++ : Increment, Value that will countinouslly go up
+	-- : Decrement, Value that will countinouslly go down
+	% : Remainder of divided value
+
+Assignment Operator:
+	= ---> x=y
+	+= ---> x=x+y
+	-= ---> x=x-y
+	*= ---> x=x*y
+	/= ---> x=x/y
+	%= ---> x=x%y
+	**= ---> x=x**y
+
+String Operators:
+	+ : Can be used to put 2 strings together
+	+= : Add 2 strings together without the use of an additonal line
+
+Comparison Operators:
+	== : Equal to
+	=== : Equal Vaalue and Equal Type
+	!= : Not Equal to
+	!== : Not Equal Value or not Equal Type
+	> : Greater Than
+	< : Less Than
+	>= : Greater Than or Equal to
+	<= : Less Than or Equal to
+	? : Ternary Operator
+
+Logical Operators:
+	&& : Logical And
+	|| : Logical Or
+	! : Logical Not
+
+Type Operators: 
+	typeof : Returns the type of a variable
+	instanceof : REturns true if an object is an instance if an object type
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS Function Parameters are listed inside paranthesis
+JS Function Arguments are the values recieved by the function
+JS Functions are executed when a piece of code calls it, event occurs, auto
+Return, returns the following statement to the caller
+JS Functions rea used so that they can be used multiple times
+The () operator allows the function to process, if there is no () after the function they computer will think that the function is a n object not a value
+Variables addressed in a function are local varaibles
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS Objects can be comapared to real life objects, they possess properties just like real life objects, these properties describe the object
+Objects may have 1 value or many, to describe a property, the popular and normal way is to have a name:value pair to describe said property in object, this should be said after the function or varaible
+The properties in the object can be called object definition, line breaks or spaces are not important, what is important is that there should be a comma after the value in the property to indicate the end of the property
+There are 2 ways to point or access the object properties :
+
+1. 
+objectName.propertyName
+
+2. 
+objectName["propertyName"]
+
+
+In properties you can have methods that define the property 
+In JS (this) is a keyword that refers to an object, it has many diffrent actions under certain curcumstances:
+	- In an object methods, (this) refers to the object
+	- If (this) is alone in a code, it will stand for the global oject
+	- When in a function, (this) will refer to an undefined value
+	- When used in an event , (this) refers to the element recieved by the event
+	- When used in diffrent methods such as a call() or apply(), (this) will refer to any object
+
+This is not a value, but rather a keyword, therefore assigning a value can not happen
+
+In JS accessing an object method can be done by putting in objectName.methodName(), if there is no () after the method, themn the code will return the function definition
+	
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS events/HTML events are "things" that happen to an HTML element, when JS is used in those HTML pages it can "react" to the event
+An HTMl event is something a browser does or what the user does, examples of these events :
+	- HTML web page finished loading
+	- HTML imput field was changed
+	- An HTML button was clicked
+
+JS lets you execute code when events have been detected
+
+HTMl allows event handler attributes, with the help of JS, to be added on to HTML events, this can be done with single or double quotes, examples of these attributes :
+	- onclick
+	- onmousehover
+	- onmouseout
+	- onkeydown
+	- onload
+  Examples of attributes with js code :
+
+<button onclick="displayDate()">The time is?</button>
+
+
+JS event handlers can be used to handle and verify actions such as :
+	- User Input
+	- User Actions
+	- Browser Actions
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS string is text it can be identified with a single or double quote
+To find the length of the text you can use the built in JS property names length which cane be used like this string.length
+Escape characters are words that use characters such as ", ', \
+When wanting to put a escape character in between strings you must use one of these :
+	
+	- \' ---> '
+	- \" ---> "
+	- \\ ---> \
+
+JS Strings are primitive values, which are created from literals
+JS Strings can be defined as objects with the keyword new, do not create string objects
+== : 2 variables are equal
+=== : 2 variables are not equal
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+JS treats primitive values as objects when executed, therefore methods and properties are possible in strings
+In JS there are 3 methods to extract string :
+	- slice(start,end)
+	- substring(start, end)
+	- substring(start, length)
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
