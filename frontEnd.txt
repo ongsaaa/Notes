@@ -1801,9 +1801,9 @@ String Operators:
 	+= : Add 2 strings together without the use of an additonal line
 
 Comparison Operators:
-	== : Equal to
-	=== : Equal Vaalue and Equal Type
-	!= : Not Equal to
+	== : Equal to (do not use)
+	=== : Strict equal operator 
+	!= : Not Equal to (do not use)
 	!== : Not Equal Value or not Equal Type
 	> : Greater Than
 	< : Less Than
